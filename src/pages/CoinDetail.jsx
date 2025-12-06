@@ -10,9 +10,28 @@ export default function CoinDetail() {
             <p>Real-time cryptocurrency prices and market data</p>
           </div>
 
+          <button>
+            ← Back to List
+          </button>
+        </div>
+      </header>
+
+      <div className="coin-detail"  >
+        <div className="coin-header">
+          <div className="coin-title">
+            <img src="" alt="" />
+            <div>
+              <h1>Coin Name</h1>
+              <p className='symbol'>Coin Symbol</p>
+            </div>
+          </div>
+          <span className='rank'>Rank #</span>
         </div>
 
-      </header>
+        <div className="coin-price-section">
+
+        </div>
+      </div>
       
     </div>
   )
