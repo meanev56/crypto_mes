@@ -108,11 +108,13 @@ export default function CoinDetail() {
 
           <div className="stat-card" >
             <span className="stat-label">Total Supply</span>
-
+            <span className='stat-value'>Market Supply</span>
           </div>
-
         </div>
       </div>
+      <footer className='footer'>
+        <p>Data provided by CoinGecko API • Updated every 30 seconds</p>
+      </footer>
       
     </div>
   )
