@@ -68,6 +68,8 @@ export const CoinDetail = () => {
       );
     }
 
+  const priceChange = coin.market_data.price_change_percentage_24h || 0;
+  const isPositive = priceChange >= 0;  
   return (
     <div className="app">
       <header className='header'>
