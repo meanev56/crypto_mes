@@ -1,7 +1,14 @@
-import React from 'react'
+import { useState } from 'react'
+import { useNavigate, useParams } from 'react-router';
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
-export default function CoinDetail() {
+export const CoinDetail = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [coin, setCoin] = useState(null);
+    const [chartData, setChartData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div className="app">
       <header className='header'>
