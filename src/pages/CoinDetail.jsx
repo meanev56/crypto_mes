@@ -29,6 +29,28 @@ export default function CoinDetail() {
         </div>
 
         <div className="coin-price-section">
+          <div className="current-price">
+            <h2>Coin Market</h2>
+            <span>Price</span>
+          </div>
+
+          <div className='price-ranges'>
+            <div className="price-range">
+              <span className='range-label'>24th High</span>
+              <span className='range-value'>
+                Price
+              </span>
+            </div>
+            <div className='price-range'>
+              <span className='range-label'>24th Low</span>
+              <span className='range-value'>
+                Price
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className='chart-section'>
 
         </div>
       </div>
