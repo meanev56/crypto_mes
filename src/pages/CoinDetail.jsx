@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router';
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { fetchChartData, fetchCoinData } from '../api/coinGecko';
 
 export const CoinDetail = () => {
     const { id } = useParams();
@@ -8,6 +9,42 @@ export const CoinDetail = () => {
     const [coin, setCoin] = useState(null);
     const [chartData, setChartData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        loadCoinData();
+        loadChartData();
+      }, [id]);
+
+    const loadCoinData = async () => {
+        try {
+          const data = await fetchCoinData(id);
+          setCoin(data);
+        } catch (err) {
+          console.error("Error fetching crypto: ", err);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      
+    const loadChartData = async () => {
+        try {
+          const data = await fetchChartData(id);
+    
+          const formattedData = data.prices.map((price) => ({
+            time: new Date(price[0]).toLocaleDateString("en-US", {
+              month: "short",
+              day: "numeric",
+            }),
+            price: price[1].toFixed(2),
+          }));
+    
+          setChartData(formattedData);
+        } catch (err) {
+          console.error("Error fetching crypto: ", err);
+        } finally {
+          setIsLoading(false);
+        }
+      };
 
   return (
     <div className="app">
