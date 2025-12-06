@@ -57,6 +57,17 @@ export const CoinDetail = () => {
       );
     }
 
+    if (!coin) {
+      return (
+        <div className="app">
+          <div className="no-results">
+            <p>Coin not found</p>
+            <button onClick={() => navigate("/")}>Go Back</button>
+          </div>
+        </div>
+      );
+    }
+
   return (
     <div className="app">
       <header className='header'>
