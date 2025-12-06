@@ -79,7 +79,10 @@ export const CoinDetail = () => {
             <p>Real-time cryptocurrency prices and market data</p>
           </div>
 
-          <button>
+          <button
+            onClick={() => navigate("/")}
+            className='back-button'
+          >
             ← Back to List
           </button>
         </div>
@@ -88,9 +91,12 @@ export const CoinDetail = () => {
       <div className="coin-detail"  >
         <div className="coin-header">
           <div className="coin-title">
-            <img src="" alt="" />
+            <img 
+              src={coin.image.large} 
+              alt={coin.name} 
+            />
             <div>
-              <h1>Coin Name</h1>
+              <h1>{coin.name}</h1>
               <p className='symbol'>Coin Symbol</p>
             </div>
           </div>
