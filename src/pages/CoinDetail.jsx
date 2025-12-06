@@ -46,6 +46,17 @@ export const CoinDetail = () => {
         }
       };
 
+    if (isLoading) {
+      return (
+        <div className="app">
+          <div className="loading">
+            <div className="spinner"></div>
+            <p>Loading coin data...</p>
+          </div>
+        </div>
+      );
+    }
+
   return (
     <div className="app">
       <header className='header'>
